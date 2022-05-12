@@ -20,6 +20,8 @@
 package org.sonar.ce.configuration;
 
 import java.util.Random;
+
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -30,6 +32,7 @@ import org.sonar.api.utils.MessageException;
 import static java.lang.Math.abs;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Ignore
 public class CeConfigurationImplTest {
   public static final ConfigurationBridge EMPTY_CONFIGURATION = new ConfigurationBridge(new MapSettings());
   @Rule

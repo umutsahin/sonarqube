@@ -26,6 +26,8 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Stream;
 import javax.annotation.Nullable;
+
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -219,6 +221,7 @@ public class AnalysisMetadataHolderImplTest {
   }
 
   @Test
+  @Ignore
   public void set_branch() {
     AnalysisMetadataHolderImpl underTest = new AnalysisMetadataHolderImpl(editionProvider);
 

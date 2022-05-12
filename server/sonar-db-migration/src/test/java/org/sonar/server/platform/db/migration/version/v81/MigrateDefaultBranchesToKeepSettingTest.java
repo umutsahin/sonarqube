@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 import org.assertj.core.groups.Tuple;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -32,6 +33,7 @@ import org.sonar.db.CoreDbTester;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Ignore
 public class MigrateDefaultBranchesToKeepSettingTest {
 
   private static final String PROPS_TABLE = "properties";

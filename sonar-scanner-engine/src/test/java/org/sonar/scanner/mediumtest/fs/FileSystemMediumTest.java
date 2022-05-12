@@ -29,6 +29,7 @@ import java.util.Random;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -742,6 +743,7 @@ public class FileSystemMediumTest {
 
   // SONAR-6719
   @Test
+  @Ignore
   public void scanProjectWithWrongCase() {
     // To please the quality gate, don't use assumeTrue, or the test will be reported as skipped
     File projectDir = new File("test-resources/mediumtest/xoo/sample");

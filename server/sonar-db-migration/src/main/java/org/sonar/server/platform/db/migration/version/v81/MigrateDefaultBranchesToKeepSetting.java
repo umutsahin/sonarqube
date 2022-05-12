@@ -76,7 +76,7 @@ public class MigrateDefaultBranchesToKeepSetting extends DataChange {
     // old defaults of
     // that setting to the defaults of the new `sonar.dbcleaner.branchesToKeepWhenInactive` setting for backward compatibility
     if (TRUE.equals(anyProjectAlreadyExists)) {
-      newSettingValue = "master,develop,trunk,branch-.*,release-.*";
+      newSettingValue = "master,main,develop,trunk,branch-.*,release/.*";
     }
 
     context

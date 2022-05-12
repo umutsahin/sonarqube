@@ -35,7 +35,7 @@ import static org.sonar.process.systeminfo.SystemInfoUtils.setAttribute;
 @ServerSide
 public class CeQueueGlobalSection implements SystemInfoSection, Global {
 
-  private static final int DEFAULT_NB_OF_WORKERS = 1;
+  private static final int DEFAULT_NB_OF_WORKERS = 8;
 
   private final DbClient dbClient;
   @Nullable

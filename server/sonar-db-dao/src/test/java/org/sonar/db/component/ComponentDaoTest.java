@@ -40,6 +40,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import javax.annotation.Nullable;
 import org.assertj.core.api.ListAssert;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -92,6 +93,7 @@ import static org.sonar.db.component.ComponentTreeQuery.Strategy.CHILDREN;
 import static org.sonar.db.component.ComponentTreeQuery.Strategy.LEAVES;
 
 @RunWith(DataProviderRunner.class)
+@Ignore
 public class ComponentDaoTest {
 
   private static final String PROJECT_UUID = "project-uuid";

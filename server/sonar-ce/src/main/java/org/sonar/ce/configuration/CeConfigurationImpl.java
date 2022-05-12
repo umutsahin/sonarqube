@@ -31,9 +31,9 @@ import static org.sonar.process.ProcessProperties.Property.CE_GRACEFUL_STOP_TIME
  * Immutable implementation of {@link CeConfiguration} initialized at startup from {@link Configuration}.
  */
 public class CeConfigurationImpl implements CeConfiguration {
-  private static final int DEFAULT_WORKER_THREAD_COUNT = 1;
+  private static final int DEFAULT_WORKER_THREAD_COUNT = 10;
   private static final int MAX_WORKER_THREAD_COUNT = 10;
-  private static final int DEFAULT_WORKER_COUNT = 1;
+  private static final int DEFAULT_WORKER_COUNT = 8;
   // 2 seconds
   private static final long DEFAULT_QUEUE_POLLING_DELAY = 2 * 1000L;
   // 0 minute
@@ -55,7 +55,7 @@ public class CeConfigurationImpl implements CeConfiguration {
     this.workerCountProvider = workerCountProvider;
     this.gracefulStopTimeoutInMs = configuration.getLong(CE_GRACEFUL_STOP_TIMEOUT.getKey())
       .orElse(Long.parseLong(CE_GRACEFUL_STOP_TIMEOUT.getDefaultValue()));
-    if (workerCountProvider == null) {
+    if (workerCountProvider == null || workerCountProvider.get() == 0) {
       this.workerCount = DEFAULT_WORKER_COUNT;
       this.workerThreadCount = DEFAULT_WORKER_THREAD_COUNT;
     } else {
@@ -67,7 +67,7 @@ public class CeConfigurationImpl implements CeConfiguration {
   private static synchronized int readWorkerCount(WorkerCountProvider workerCountProvider) {
     int value = workerCountProvider.get();
     if (value < DEFAULT_WORKER_COUNT || value > MAX_WORKER_THREAD_COUNT) {
-      throw parsingError(value);
+      value = DEFAULT_WORKER_COUNT;
     }
     return value;
   }
